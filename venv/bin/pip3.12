@@ -1,4 +1,4 @@
-#!/home/bruno/Sites/DJANGO/testes-automatizados/venv/bin/python3
+#!/home/bruno/Sites/PYTHON/BrunoFaria-DEV/testes-automatizados/venv/bin/python3
 # -*- coding: utf-8 -*-
 import re
 import sys
