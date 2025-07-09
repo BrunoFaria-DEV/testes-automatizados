@@ -1,9 +1,8 @@
 from django import forms
 from .models import Pessoa
+from datetime import date
 from .helpers.validators import validar_cpf
 import re
-
-
 
 class PessoaForm(forms.ModelForm):
     class Meta:
@@ -21,29 +20,23 @@ class PessoaForm(forms.ModelForm):
         label='Data de Nascimento'
     )
 
+    def clean_data_nascimento(self):
+        data = self.cleaned_data.get('data_nascimento')
+        if data and data > date.today():
+            raise forms.ValidationError('A data de nascimento não pode ser futura.')
+        return data
+
     def clean_cpf(self):
-        """
-        Este método é o local padrão do Django para lógica customizada de um campo.
-        Fluxo:
-        1. Pega o dado bruto enviado pelo usuário.
-        2. Usa a função `validar_cpf` para garantir que é um CPF válido.
-        3. Se for válido, formata para o padrão '000.000.000-00'.
-        4. Retorna o valor formatado para ser salvo no banco.
-        """
-        # 1. Pega o dado bruto que o usuário digitou no campo 'cpf'
         cpf = self.cleaned_data.get('cpf')
 
         if cpf:
-            # 2. Chama nossa função de validação. 
-            # Se o CPF for inválido, ela levantará um ValidationError que o Django
-            # exibirá corretamente para o usuário no campo 'cpf'.
             validar_cpf(cpf)
-
-            # 3. Se a validação passou, limpamos o CPF para a formatação.
             cpf_limpo = re.sub(r'[^0-9]', '', cpf)
+            cpf_formatado = f"{cpf_limpo[:3]}.{cpf_limpo[3:6]}.{cpf_limpo[6:9]}-{cpf_limpo[9:]}"
 
-            # 4. Formata e retorna o valor que será salvo no banco.
-            return f"{cpf_limpo[:3]}.{cpf_limpo[3:6]}.{cpf_limpo[6:9]}-{cpf_limpo[9:]}"
-        
-        # Retorna o valor original caso esteja vazio (se o campo não for obrigatório)
+            if Pessoa.objects.filter(cpf=cpf_formatado).exclude(pk=self.instance.pk).exists():
+                raise forms.ValidationError('Este CPF já está cadastrado.')
+
+            return cpf_formatado
+
         return cpf
