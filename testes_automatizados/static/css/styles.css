@@ -1,0 +1,172 @@
+/* Estilo simples para formulário de pessoa */
+form {
+    max-width: 400px;
+    margin: 0 auto 24px auto;
+    padding: 20px 24px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+}
+form label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 500;
+    color: #3f51b5;
+}
+.input-text, .input-data {
+    width: 100%;
+    padding: 8px 10px;
+    margin-bottom: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+    box-sizing: border-box;
+}
+button[type="submit"] {
+    background: #3f51b5;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 18px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+button[type="submit"]:hover {
+    background: #283593;
+}
+/* Tabela de pessoas */
+.tabela-pessoas-wrapper {
+    overflow-x: auto;
+    margin-bottom: 24px;
+}
+.tabela-pessoas {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+    font-size: 1em;
+    min-width: 600px;
+}
+.tabela-pessoas th, .tabela-pessoas td {
+    padding: 10px 14px;
+    text-align: left;
+}
+.tabela-pessoas th {
+    background: #3f51b5;
+    color: #fff;
+    font-weight: 600;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+.tabela-pessoas tr:nth-child(even) {
+    background: #f6f7fb;
+}
+.tabela-pessoas tr:hover {
+    background: #e3e7fa;
+}
+.tabela-pessoas td {
+    border-bottom: 1px solid #e0e0e0;
+}
+.tabela-pessoas td:last-child {
+    white-space: nowrap;
+}
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2;
+}
+
+header {
+    background-color: #3f51b5;
+    color: white;
+    padding: 10px 20px;
+}
+
+nav a {
+    color: white;
+    margin-right: 10px;
+    text-decoration: none;
+}
+
+main {
+    padding: 20px;
+    background-color: white;
+    margin: 20px;
+    border-radius: 8px;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    font-size: 0.9em;
+    color: #555;
+}
+
+[data-testid="log-view"] {
+    display: none;
+}
+
+.btn-editar {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 5px 12px;
+    margin-left: 10px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 0.95em;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.btn-editar:hover {
+    background-color: #388e3c;
+}
+
+.btn-excluir {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 5px 12px;
+    margin-left: 5px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 0.95em;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.btn-excluir:hover {
+    background-color: #c62828;
+}
+
+/* Estilo para a lista de pessoas */
+ul.lista-pessoas {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px 0;
+    max-width: 600px;
+}
+ul.lista-pessoas li {
+    background: #f9f9f9;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+    transition: background 0.2s;
+}
+ul.lista-pessoas li:hover {
+    background: #f1f1f1;
+}
+ul.lista-pessoas li span {
+    flex: 1;
+}
+ul.lista-pessoas .btn-editar,
+ul.lista-pessoas .btn-excluir {
+    margin-left: 8px;
+}

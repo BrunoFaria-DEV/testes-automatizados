@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}Página Inicial{% endblock %}
+
+{% block header_title %}Bem-vindo ao Sistema{% endblock %}
+
+{% block nav %}
+<h1>Projetos</h1>
+{% endblock %}
+
+{% block conteudo %}
+    <h2>Escolha um módulo:</h2>
+    <ul>
+        <li><a href="{% url 'lista_pessoas' %}">Gerenciar Pessoas</a></li>
+        <!-- Mais módulos no futuro -->
+    </ul>
+{% endblock %}

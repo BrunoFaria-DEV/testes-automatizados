@@ -1,0 +1,19 @@
+{% extends 'pessoas/base.html' %}
+
+{% block title %}Cadastro de Pessoa{% endblock %}
+
+{% block conteudo %}
+
+  {% comment %}
+    Marcadores para testes de rendereização da view
+  {% endcomment %}
+  <p data-testid="log-view">VIEW: criar_pessoa</p>
+  <p data-testid="log-view">VIEW: editar_pessoa</p>
+
+  <h2>Formulário</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Salvar</button>
+  </form>
+{% endblock %}

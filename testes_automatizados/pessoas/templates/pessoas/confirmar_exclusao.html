@@ -1,0 +1,17 @@
+{% extends 'pessoas/base.html' %}
+
+{% block title %}Confirmar Exclusão{% endblock %}
+
+{% block conteudo %}
+
+  {% comment %}
+    Marcadores para testes de rendereização da view
+  {% endcomment %}
+  <p data-testid="log-view">VIEW: excluir_pessoa</p>
+
+  <h2>Deseja realmente excluir este registro?</h2>
+  <form method="post">
+    {% csrf_token %}
+    <button type="submit">Confirmar</button>
+  </form>
+{% endblock %}
